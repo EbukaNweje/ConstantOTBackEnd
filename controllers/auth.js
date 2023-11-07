@@ -318,8 +318,9 @@ exports.restLink = async (req, res, next) => {
 exports.signupEmailSand = async (req, res, next) =>{
   try{
     const email = req.body.email
-    
     const UserEmail = await User.findOne({email})
+    // console.log(UserEmail)
+    // console.log(process.env.USER)
     const mailOptions ={
       from: process.env.USER,
       to: UserEmail.email,
